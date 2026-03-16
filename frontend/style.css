@@ -1,0 +1,49 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+/* Oval chat container */
+#chat-oval {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 300px;
+  height: 60px;
+  background: #007bff;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Avatar circle on left */
+.avatar {
+  width: 40px;
+  height: 40px;
+  background: url("avatar.png") no-repeat center/cover; /* replace with your avatar image */
+  border-radius: 50%;
+  border: 2px solid #fff;
+}
+
+/* Input field inside oval */
+#message-input {
+  flex: 1;
+  margin: 0 10px;
+  padding: 8px;
+  border: none;
+  border-radius: 20px;
+  outline: none;
+}
+
+/* Send button circle on right */
+#send-btn {
+  width: 40px;
+  height: 40px;
+  background: #fff url("send-icon.png") no-repeat center/60%; /* replace with your send icon */
+  border-radius: 50%;
+  border:;
+}
