@@ -37,6 +37,8 @@ body {
   border: none;
   border-radius: 20px;
   outline: none;
+  background: var(--input-bg, #fff);
+  color: var(--text-color);
 }
 
 /* Send button circle on right */
@@ -45,5 +47,20 @@ body {
   height: 40px;
   background: #fff url("send-icon.png") no-repeat center/60%; /* replace with your send icon */
   border-radius: 50%;
-  border:;
+  border: none;
+  cursor: pointer;
+}
+
+:root {
+  --bot-bg: #ffffff;
+  --input-bg: #f4f4f9;
+  --button-bg: #007bff;
+  --text-color: #333;
+}
+
+[data-theme="dark"] {
+  --bot-bg: #1e1e1e;
+  --input-bg: #2c2c2c;
+  --button-bg: #4a90e2;
+  --text-color: #f4f4f9;
 }
