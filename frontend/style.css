@@ -11,25 +11,28 @@ body {
   right: 20px;
   width: 300px;
   height: 60px;
-  background: #007bff;
+  background: #121212;
   border-radius: 50px;
   display: flex;
-  align-items: center; 
+  align-items: center;
   justify-content: space-between;
   padding: 0 15px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  color: #f4f4f9;
 }
-
-/* Avatar circle on left */
-.avatar {
+.msg-icon {
   width: 40px;
   height: 40px;
-  background: url("avatar.png") no-repeat center/cover; /* replace with your avatar image */
   border-radius: 50%;
-  border: 2px solid #fff;
+  background: #00ffcc; /* portfolio accent teal */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  color: #121212;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
 }
 
-/* Input field inside oval */
 #message-input {
   flex: 1;
   margin: 0 10px;
@@ -37,30 +40,24 @@ body {
   border: none;
   border-radius: 20px;
   outline: none;
-  background: var(--input-bg, #fff);
-  color: var(--text-color);
+  background: #2c2c2c;
+  color: #f4f4f9;
+}
+.avatar {
+  width: 40px;
+  height: 40px;
+  background: url("avatar.png") no-repeat center/cover; /* replace with your avatar image */
+  border-radius: 50%;
+  border: 2px solid #00ffcc;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
 }
 
 /* Send button circle on right */
 #send-btn {
   width: 40px;
   height: 40px;
-  background: #fff url("send-icon.png") no-repeat center/60%; /* replace with your send icon */
+  background: #00ffcc url("send-icon.png") no-repeat center/60%; /* replace with your send icon */
   border-radius: 50%;
   border: none;
   cursor: pointer;
-}
-
-:root {
-  --bot-bg: #ffffff;
-  --input-bg: #f4f4f9;
-  --button-bg: #007bff;
-  --text-color: #333;
-}
-
-[data-theme="dark"] {
-  --bot-bg: #1e1e1e;
-  --input-bg: #2c2c2c;
-  --button-bg: #4a90e2;
-  --text-color: #f4f4f9;
 }

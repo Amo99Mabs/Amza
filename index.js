@@ -22,7 +22,6 @@ let recruiterStep = 0;
 
 app.post("/chat", (req, res) => {
   const userMessage = req.body.message?.toLowerCase() || "";
-
   let botReply = "I'm Amza Bot, here to help!";
 
   if (userMessage.includes("hello")) {
