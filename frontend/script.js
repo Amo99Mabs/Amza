@@ -1,5 +1,6 @@
 const input = document.getElementById("message-input");
 const sendBtn = document.getElementById("send-btn");
+const msgBtn = document.getElementById(".avatar");
 
 async function sendMessage() {
   const userMessage = input.value.trim();
@@ -16,7 +17,8 @@ async function sendMessage() {
   input.value = "";
 }
 
-sendBtn.addEventListener("click", sendMessage);
+msgBtn.addEventListener("click", sendMessage);
+avatar.addEventListener("click", sendMessage);
 input.addEventListener("keypress", (e) => {
   if (e.key === "Enter") sendMessage();
 });
