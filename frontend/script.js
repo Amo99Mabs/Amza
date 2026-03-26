@@ -1,6 +1,6 @@
 const input = document.getElementById("message-input");
-const sendBtn = document.getElementById("send-btn");
-const msgBtn = document.getElementById(".avatar");
+const sendBtn = document.getElementById("msg-btn");
+const msgBtn = document.getElementById(".avatar-btn");
 
 async function sendMessage() {
   const userMessage = input.value.trim();
