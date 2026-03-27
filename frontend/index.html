@@ -1,17 +1,25 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Amza AI Bot</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <div id="chat-oval">
-      <div class="avatar"></div>
-      <button id="msg-btn" class="msg-icon">✉️</button>
-      <input id="message-input" type="text" placeholder="Type a message..." />
-      <div id="avatar-btn" class="avatar"></div>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Amza Bot</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Meet Amza !</h1>
+  
+   <!-- Chat container -->
+  <div id="chatContainer">
+    <div id="chatIcon">
+      <img src="avatar.png" alt="Amza Avatar">
     </div>
-    <script src="script.js"></script>
-  </body>
+    <input type="text" id="userInput" placeholder="Ask Amza about Amo...">
+    <button id="sendBtn" onclick="sendMessage()">➤</button>
+  </div>
+
+  <!-- Chat history box -->
+  <div id="chatBox"></div>
+
+
+  <script src="app.js"></script>
+</body>
 </html>
