@@ -1,51 +1,45 @@
-const express = require("express");
-const bodyParser = require("body-parser");
-const path = require("path");
+function showChatBox() {
+  document.getElementById('chatBox').style.display = 'block';
+}
 
-const app = express();
-const PORT = process.env.PORT || 3000;
+// Welcome message
+window.onload = function() {
+  const chatBox = document.getElementById('chatBox');
+  chatBox.style.display = 'block'; 
+  chatBox.innerHTML = `<p><strong>Amza:</strong> Hi, I'm Amza 👋 Ask me about Amo or her projects!</p>`;
+  
+  const input = document.getElementById('userInput');
+  input.addEventListener("keypress", function(event) {
+    if (event.key === "Enter") {
+      event.preventDefault(); // stop form submission / page reload
+      sendMessage();
+    }
+  });
+};
 
-app.use(bodyParser.json());
+async function sendMessage() {
+  const input = document.getElementById('userInput');
+  const message = input.value;
+  if (!message) return;
 
-app.use(express.static(path.join(__dirname, "public")));
+  showChatBox();
 
-const recruiterIntro = [
-  "Hello, I’m Amza Bot, your guide to Amogelang Mabonela’s portfolio.",
-  "Amogelang is an aspiring AI Engineer and Software Developer, with strong experience in sales and customer service.",
-  "She works with HTML, CSS, JavaScript, Python, React, and Machine Learning.",
-  "Recent work includes the Uzuri Boutique app, polished with recruiter-ready documentation and UI/UX improvements.",
-  "Right now, she’s refining her portfolio apps and building a LinkedIn content plan to strengthen her AI engineering brand.",
-  "Her short-term goals include showcasing polished recruiter-facing projects and positioning for both AI engineering and customer service roles.",
-];
+  const chatBox = document.getElementById('chatBox');
+  chatBox.innerHTML += `<div class="userMsg">${message}</div>`;
 
-let recruiterStep = 0;
+try {
+  const res = await fetch('/chat', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ message })
+  });
+  const data = await res.json();
 
-app.post("/chat", (req, res) => {
-  const userMessage = req.body.message?.toLowerCase() || "";
-  let botReply = "I'm Amza Bot, here to help!";
-
-  if (userMessage.includes("hello")) {
-    botReply = recruiterIntro[0];
-    recruiterStep = 1;
-  } else if (
-    userMessage.includes("next") &&
-    recruiterStep < recruiterIntro.length
-  ) {
-    botReply = recruiterIntro[recruiterStep];
-    recruiterStep++;
-  } else if (userMessage.includes("help")) {
-    botReply =
-      "Sure! I can tell you about Amogelang’s skills, projects, and goals. Type 'next' to continue.";
-  } else if (userMessage.includes("bye")) {
-    botReply = "Goodbye! Thanks for visiting Amogelang’s portfolio.";
-    recruiterStep = 0;
-  } else {
-    botReply =
-      "Type 'hello' to start Amogelang’s introduction, or 'next' to continue.";
+  chatBox.innerHTML += `<div class="botMsg"><strong>Amza:</strong> ${data.reply}</div>`;
+  } catch (err) {
+    chatBox.innerHTML += `<div class="botMsg"><strong>Amza:</strong> Sorry, something went wrong.</div>`;
   }
-  res.json({ reply: botReply });
-});
 
-app.listen(PORT, () => {
-  console.log(`Amza Bot is running on port ${PORT}`);
-});
+  input.value = '';
+  chatBox.scrollTop = chatBox.scrollHeight;
+}
