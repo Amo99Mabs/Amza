@@ -1,65 +1,121 @@
 body {
+  background: #f5f5f5;
+  color: #333;
+  font-family: 'Segoe UI', Arial, sans-serif;
   margin: 0;
   padding: 0;
-  font-family: Arial, sans-serif;
 }
-
-/* Oval chat container */
-#chat-oval {
+#chatContainer {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  width: 300px;
-  height: 60px;
-  background: #121212;
-  border-radius: 50px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 0 15px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
-  color: #f4f4f9;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 40px; /* oval strip */
+  padding: 5px 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  transition: all 0.3s ease-in-out;
 }
-.msg-icon {
-  order: 0;
+
+#chatIcon {
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  overflow: hidden;
+  margin-right: 10px;
+  border: 2px solid #ff6600;
+  flex-shrink: 0;
+}
+
+#chatIcon img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+#userInput {
+  border: none;
+  outline: none;
+  padding: 8px;
+  flex: 1;
+  font-size: 14px;
+  background: transparent;
+}
+
+#sendBtn {
+  background: #ff6600;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
   width: 40px;
   height: 40px;
-  border-radius: 50%;
-  background: #00ffcc; /* portfolio accent teal */
+  margin-left: 8px;
+  cursor: pointer;
+  font-size: 16px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 20px;
-  color: #121212;
-  cursor: pointer;
+  transition: background 0.2s ease-in-out;
 }
 
-#message-input {
-  order: 1;
-  flex: 1;
-  margin: 0 10px;
-  padding: 8px;
-  border: none;
-  border-radius: 20px;
-  background: #2c2c2c;
-  color: #f4f4f9;
+#sendBtn:hover {
+  background: #e65c00;
 }
 
-.avatar {
-  order: 2;
-  width: 40px;
-  height: 40px;
-  background: url("avatar.png") no-repeat center/cover; /* replace with your avatar image */
-  border-radius: 50%;
-  border: 2px solid #00ffcc;
+#chatBox {
+  display: none;
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  width: 300px;
+  max-height: 300px;
+  overflow-y: auto;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  animation: slideUp 0.3s ease-out;
+}
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-/* Send button circle on right */
-#send-btn {
-  width: 40px;
-  height: 40px;
-  background: #00ffcc url("send-icon.png") no-repeat center/60%; /* replace with your send icon */
-  border-radius: 50%;
-  border: none;
-  cursor: pointer;
+.userMsg {
+  text-align: right;
+  color: #333;
+  background: #e6e6e6;
+  padding: 6px 10px;
+  border-radius: 12px;
+  margin: 4px 0;
+  display: inline-block;
+  max-width: 80%;
 }
+
+.amzaMsg {
+  text-align: left;
+  color: #fff;
+  background: #ff6600;
+  padding: 6px 10px;
+  border-radius: 12px;
+  margin: 4px 0;
+  display: inline-block;
+  max-width: 80%;
+}
+
+.timestamp {
+  font-size: 11px;
+  color: #999;
+  margin-top: 2px;
+  display: block;
+}
+
