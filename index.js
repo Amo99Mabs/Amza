@@ -16,7 +16,7 @@ window.onload = function() {
     }
   });
 };
-
+ 
 async function sendMessage() {
   const input = document.getElementById('userInput');
   const message = input.value;
