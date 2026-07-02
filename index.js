@@ -1,7 +1,7 @@
 function showChatBox() {
   document.getElementById('chatBox').style.display = 'block';
 }
-
+ 
 // Welcome message
 window.onload = function() {
   const chatBox = document.getElementById('chatBox');
